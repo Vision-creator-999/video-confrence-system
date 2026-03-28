@@ -21,7 +21,9 @@ const ICE_SERVERS = {
   ],
 };
 
-const SIGNALING_SERVER = 'http://localhost:5000';
+// Use environment variable for production (VITE_ prefix for Vite apps)
+// Fallback to localhost:5000 during development
+const SIGNALING_SERVER = import.meta.env.VITE_SIGNALING_SERVER || 'http://localhost:5000';
 
 export default function useWebRTC(roomId) {
   // Refs for WebRTC objects (don't trigger re-renders)

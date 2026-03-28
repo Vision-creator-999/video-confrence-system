@@ -1,0 +1,16 @@
+# Render Blueprint Specification
+# See https://render.com/docs/blueprint-spec for details
+services:
+  # Signaling Server (Backend)
+  - type: web
+    name: meetup-signaling-server
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
