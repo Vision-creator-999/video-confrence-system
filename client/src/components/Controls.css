@@ -1,0 +1,139 @@
+/* ============================================
+   Controls Component Styles
+   ============================================ */
+
+.controls {
+  padding: var(--space-md) 0;
+  display: flex;
+  justify-content: center;
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+.controls__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-xl);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+/* === Control Button === */
+.controls__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  min-width: 72px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.controls__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.controls__btn:hover::before {
+  opacity: 1;
+}
+
+.controls__btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.controls__btn:active {
+  transform: translateY(0);
+}
+
+.controls__btn-icon {
+  font-size: var(--font-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-spring);
+}
+
+.controls__btn:hover .controls__btn-icon {
+  transform: scale(1.1);
+}
+
+.controls__btn-label {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
+}
+
+/* === Toggled Off State === */
+.controls__btn--off {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: rgba(255, 107, 107, 0.3);
+  color: var(--color-danger);
+}
+
+.controls__btn--off .controls__btn-label {
+  color: var(--color-danger);
+}
+
+.controls__btn--off:hover {
+  background: rgba(255, 107, 107, 0.25);
+  border-color: rgba(255, 107, 107, 0.5);
+}
+
+/* === Leave Button === */
+.controls__btn--leave {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: rgba(255, 107, 107, 0.3);
+  color: var(--color-danger);
+  min-width: 88px;
+}
+
+.controls__btn--leave .controls__btn-label {
+  color: var(--color-danger);
+}
+
+.controls__btn--leave:hover {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: white;
+  box-shadow: var(--shadow-glow-danger);
+}
+
+.controls__btn--leave:hover .controls__btn-label {
+  color: white;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .controls__bar {
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .controls__btn {
+    min-width: 60px;
+    padding: var(--space-sm);
+  }
+
+  .controls__btn-label {
+    display: none;
+  }
+}
